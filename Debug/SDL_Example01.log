@@ -1,0 +1,5 @@
+﻿  Game.cpp
+  Main.cpp
+c:\users\owner\source\repos\sdl_example01\main.cpp(7): warning C4244: 'initializing': conversion from 'float' to 'Uint32', possible loss of data
+  Generating Code...
+  SDL_Example01.vcxproj -> C:\Users\Owner\source\repos\SDL_Example01\Debug\SDL_Example01.exe
