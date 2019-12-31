@@ -31,6 +31,8 @@ bool Game::init(const char *title, int xpos, int ypos, int width, int height, in
 		if (IMG_Init(IMG_INIT_PNG))
 		{
 			cout << "image init success" << endl;
+			player = new Player(1024 / 2, 768 / 2, 64, 64);
+			TheTextureManager::Instance()->Load("player", "Assets/Player.png");
 		}
 		else
 		{
@@ -43,56 +45,55 @@ bool Game::init(const char *title, int xpos, int ypos, int width, int height, in
 		cout << "SDL init fail" << endl;
 		return false;
 	}
-
 	m_bRunning = true;
 	return true;
 }
 
-void Game::update(Player& p)
+void Game::update()
 {
 	if (m_bUpPressed)
 	{
-		p.MoveY(-1);
+		player->MoveY(-1);
 	}
 	if (m_bDownPressed)
 	{
-		p.MoveY(1);
+		player->MoveY(1);
 	}
 	if (m_bLeftPressed)
 	{
-		p.MoveX(-1);
-		p.m_pRendererFlip = SDL_FLIP_HORIZONTAL;
+		player->MoveX(-1);
+		player->m_pRendererFlip = SDL_FLIP_HORIZONTAL;
 	}
 	if (m_bRightPressed)
 	{
-		p.MoveX(1);
-		p.m_pRendererFlip = SDL_FLIP_NONE;
+		player->MoveX(1);
+		player->m_pRendererFlip = SDL_FLIP_NONE;
 		
 	}
 
 	if (!m_bUpPressed && !m_bDownPressed && !m_bLeftPressed && !m_bRightPressed)
 	{
-		p.m_iFrameX = 0;
-		p.m_rSrc.x = 0;
+		player->m_iFrameX = 0;
+		player->m_rSrc.x = 0;
 	}
 	else
 	{
-		p.m_iTick++;
+		player->m_iTick++;
 
-		if (p.m_iTick % 4 == 0)
-			p.AdvanceAnimation();
+		if (player->m_iTick % 4 == 0)
+			player->AdvanceAnimation();
 
 	}
 		
 	
 }
 
-void Game::render(Player& p)
+void Game::render()
 {
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_pRenderer);
 
-	SDL_RenderCopyEx(m_pRenderer, p.m_pTexture, &p.m_rSrc, &p.m_rDst, 0.0f, NULL, p.m_pRendererFlip);
+	player->Render();
 
 	SDL_RenderPresent(m_pRenderer);
 }

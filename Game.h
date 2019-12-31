@@ -3,6 +3,7 @@
 #include "SDL_image.h"
 #include <iostream>
 #include "Player.h"
+#include "TextureManager.h"
 using namespace std;
 class Game
 {
@@ -15,11 +16,11 @@ public:
 	SDL_Renderer* getRenderer();
 	bool running();
 	bool init(const char*, int, int, int, int, int);
-	void update(Player& p);
-	void render(Player& p);
+	void update();
+	void render();
 	void handleEvents();
 	void clean();
-
+	Player* player;
 
 	static Game* Instance()
 	{
