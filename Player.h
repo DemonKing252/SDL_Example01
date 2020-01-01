@@ -1,5 +1,6 @@
 #pragma once
 #include "Sprite.h"
+#include "FontManager.h"
 class Player : public Sprite
 {
 private:

@@ -16,4 +16,6 @@ void Player::MoveY(int y)
 void Player::Render()
 {
 	TheTextureManager::Instance()->Render("player", m_x, m_y, width, height, m_rSrc, m_pRendererFlip);
+
+	TheFontManager::Instance()->Render("arial", { 255, 0, 0 }, "Player: " + to_string((int)m_x) + " " + to_string((int)m_y), 0, 0);
 }

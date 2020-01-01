@@ -1,12 +1,4 @@
-﻿  Game.cpp
+﻿  FontManager.cpp
 c:\users\owner\source\repos\sdl_example01\sprite.h(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Main.cpp
-c:\users\owner\source\repos\sdl_example01\sprite.h(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\owner\source\repos\sdl_example01\main.cpp(7): warning C4244: 'initializing': conversion from 'float' to 'Uint32', possible loss of data
-  Player.cpp
-c:\users\owner\source\repos\sdl_example01\sprite.h(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\owner\source\repos\sdl_example01\player.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  TextureManager.cpp
-c:\users\owner\source\repos\sdl_example01\sprite.h(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+c:\users\owner\source\repos\sdl_example01\fontmanager.cpp(29): warning C4715: 'FontManager::Load': not all control paths return a value
   SDL_Example01.vcxproj -> C:\Users\Owner\source\repos\SDL_Example01\Debug\SDL_Example01.exe

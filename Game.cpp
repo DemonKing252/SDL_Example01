@@ -39,6 +39,17 @@ bool Game::init(const char *title, int xpos, int ypos, int width, int height, in
 			cout << "image init fail" << endl;
 			return false;
 		}
+		if (TTF_Init() == 0)
+		{
+			cout << "TTF init success" << endl;
+			TheFontManager::Instance()->Load("arial", "Assets/arial.ttf", 30);
+		}
+		else
+		{
+			cout << "TTF init failed" << endl;
+			return false;
+		}
+		
 	}
 	else
 	{
@@ -93,6 +104,8 @@ void Game::render()
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_pRenderer);
 
+
+	// I didn't have this in the previous video, sorry!!!
 	player->Render();
 
 	SDL_RenderPresent(m_pRenderer);
