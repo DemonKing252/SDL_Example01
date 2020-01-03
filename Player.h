@@ -5,7 +5,7 @@ class Player : public Sprite
 {
 private:
 
-	const int playerSpeed = 5;
+	const float playerSpeed = 5;
 public:
 	Player(int x, int y, int w, int h);
 

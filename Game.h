@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "TextureManager.h"
 #include "FontManager.h"
+#include "Util.h"
 using namespace std;
 class Game
 {
@@ -22,7 +23,7 @@ public:
 	void render();
 	void handleEvents();
 	void clean();
-	Player* player;
+	Player* m_pPlayer;
 
 	static Game* Instance()
 	{

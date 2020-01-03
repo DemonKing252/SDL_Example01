@@ -31,7 +31,7 @@ bool Game::init(const char *title, int xpos, int ypos, int width, int height, in
 		if (IMG_Init(IMG_INIT_PNG))
 		{
 			cout << "image init success" << endl;
-			player = new Player(1024 / 2, 768 / 2, 64, 64);
+			m_pPlayer = new Player(1024 / 2, 768 / 2, 64, 64);
 			TheTextureManager::Instance()->Load("player", "Assets/Player.png");
 		}
 		else
@@ -64,35 +64,35 @@ void Game::update()
 {
 	if (m_bUpPressed)
 	{
-		player->MoveY(-1);
+		m_pPlayer->MoveY(-1);
 	}
 	if (m_bDownPressed)
 	{
-		player->MoveY(1);
+		m_pPlayer->MoveY(1);
 	}
 	if (m_bLeftPressed)
 	{
-		player->MoveX(-1);
-		player->m_pRendererFlip = SDL_FLIP_HORIZONTAL;
+		m_pPlayer->MoveX(-1);
+		m_pPlayer->m_pRendererFlip = SDL_FLIP_HORIZONTAL;
 	}
 	if (m_bRightPressed)
 	{
-		player->MoveX(1);
-		player->m_pRendererFlip = SDL_FLIP_NONE;
+		m_pPlayer->MoveX(1);
+		m_pPlayer->m_pRendererFlip = SDL_FLIP_NONE;
 		
 	}
 
 	if (!m_bUpPressed && !m_bDownPressed && !m_bLeftPressed && !m_bRightPressed)
 	{
-		player->m_iFrameX = 0;
-		player->m_rSrc.x = 0;
+		m_pPlayer->m_iFrameX = 0;
+		m_pPlayer->m_rSrc.x = 0;
 	}
 	else
 	{
-		player->m_iTick++;
+		m_pPlayer->m_iTick++;
 
-		if (player->m_iTick % 4 == 0)
-			player->AdvanceAnimation();
+		if (m_pPlayer->m_iTick % 4 == 0)
+			m_pPlayer->AdvanceAnimation();
 
 	}
 		
@@ -106,7 +106,7 @@ void Game::render()
 
 
 	// I didn't have this in the previous video, sorry!!!
-	player->Render();
+	m_pPlayer->Render();
 
 	SDL_RenderPresent(m_pRenderer);
 }

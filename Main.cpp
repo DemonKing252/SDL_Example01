@@ -3,12 +3,8 @@
 #define FPS 60
 int main(int args, char* arvs[])
 {
-
 	Uint32 frameStart, frameTime, delayTime = 1000.0f / FPS;
 	Game::Instance()->init("SDL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 768, 0);
-	
-	
-
 	
 	while (Game::Instance()->running())
 	{
